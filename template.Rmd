@@ -3,4 +3,57 @@ title: "Data import"
 output: github_document
 ---
 
+This file is for doing data import .
+
+```{r}
+library(tidyverse)
+```
+
+ALways use relative path to acces/import data
+
+import ourt first dataset.
+
+```{r}
+
+litters_df = 
+  read_csv(file = "data/FAS_litters.csv")
+
+litters_df = janitor::clean_names(litters_df)
+
+```
+
+the janitor function changed the name from tibble to clean names.
+
+Import your second dataset. 
+
+## Import two data 
+
+```{r}
+
+pups_df = 
+  read_csv(file = "data/FAS_litters.csv", skip = 3)
+
+pups_df = janitor::clean_names(pups_df)
+```
+
+## Look at the data
+
+```{r}
+litters_df
+pups_df
+```
+```{r}
+litters_df
+tail(litters_df, 5)
+
+```
+
+skim variables: 
+
+```{r}
+skimr::skim(pups_df)
+```
+
+
+
 
